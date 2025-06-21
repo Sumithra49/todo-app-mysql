@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://localhost:8080/todo";
+const API_URL = "https://todo-app-mysql-1.onrender.com/todo";
 
 function App() {
   const [task, setTask] = useState("");
