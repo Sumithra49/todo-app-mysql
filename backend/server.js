@@ -1,4 +1,7 @@
+
+require("dotenv").config();
 const express = require("express");
+
 const cors = require("cors");
 const { connectionToDb, sequelize } = require("./config/db");
 const todoRouter = require("./routes/todoRoutes");
@@ -7,7 +10,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = 8080;
+const port = process.env.PORT || 5000;
+
 
 
 app.get("/", (req, res) => {
