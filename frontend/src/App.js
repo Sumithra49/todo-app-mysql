@@ -3,7 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 // Change API URL to localhost
-const API_URL = "http://localhost:8080/todo";
+const API_URL = "https://todo-app-mysql-2.onrender.com/todo";
 
 function App() {
   const [task, setTask] = useState("");
