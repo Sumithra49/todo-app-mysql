@@ -2,9 +2,8 @@
 #  To-Do List App (MERN + MySQL)
 
 # Deployment
-- frontend:https://todo-app-mysql.vercel.app/
--  backend:https://todo-app-mysql-1.onrender.com
-
+- frontend:https://todo-app-mysql-mkgl.vercel.app/
+-  backend:https://todo-app-mysql-2.onrender.com
 
 # Folder structure
 ![image](https://github.com/user-attachments/assets/11e4e916-2f6a-4563-8a30-3e1f7cea9fd7)
@@ -46,7 +45,8 @@ mysqldump --set-gtid-purged=OFF --single-transaction \
   -p <your_database_name> > db-export.sql
 
    # UI
-  ![image](https://github.com/user-attachments/assets/b64955b4-0a00-411e-98a9-c18d9308b7d4)
+ ![image](https://github.com/user-attachments/assets/3ab8e7d8-87ae-44e7-989c-2315f4a37560)
+
 
 
 
