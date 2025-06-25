@@ -1,15 +1,24 @@
+/* Reset and base styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   max-width: 500px;
-  margin: 30px auto;
-  padding: 20px;
-  font-family: sans-serif;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #333;
 }
 
 .input-group {
@@ -20,55 +29,94 @@ h2 {
 
 input[type="text"] {
   flex: 1;
-  padding: 8px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .add-btn {
-  padding: 8px 12px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
-  border: none;
-  cursor: pointer;
 }
 
-
-
-
-.delete-btn {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
-  border-radius: 4px;
+.add-btn:hover {
+  background-color: #218838;
 }
-
-
 
 ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  margin-bottom: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-}
-
-.todo-item.completed {
-  background-color: #d3fdd3;
-}
-
-.todo-item span {
-  margin-left: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }
 
 .todo-item.completed span {
   text-decoration: line-through;
+  color: #999;
+}
+
+.todo-item div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-input {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0069d9;
+}
+
+.save-btn {
+  background-color: #ffc107;
+  color: black;
+}
+
+.save-btn:hover {
+  background-color: #e0a800;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
 }

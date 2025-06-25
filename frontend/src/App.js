@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "https://todo-app-mysql-1.onrender.com/todo";
+// Change API URL to localhost
+const API_URL = "http://localhost:8080/todo";
 
 function App() {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
+  const [editingId, setEditingId] = useState(null);
+  const [editedTask, setEditedTask] = useState("");
 
   const fetchTodos = async () => {
     try {
@@ -50,9 +53,31 @@ function App() {
     }
   };
 
+  const startEditing = (todo) => {
+    setEditingId(todo.id);
+    setEditedTask(todo.task);
+  };
+
+  const cancelEditing = () => {
+    setEditingId(null);
+    setEditedTask("");
+  };
+
+  const handleEditSave = async (id) => {
+    if (!editedTask.trim()) return;
+    try {
+      await axios.put(`${API_URL}/${id}`, { task: editedTask });
+      setEditingId(null);
+      setEditedTask("");
+      fetchTodos();
+    } catch (err) {
+      console.error("Error updating task:", err);
+    }
+  };
+
   return (
     <div className="container">
-      <h2> My To-Do List</h2>
+      <h2>My To-Do List</h2>
       <div className="input-group">
         <input
           type="text"
@@ -75,9 +100,25 @@ function App() {
                 checked={todo.completed}
                 onChange={() => toggleTodo(todo.id, todo.completed)}
               />
-              <span>{todo.task}</span>
+              {editingId === todo.id ? (
+                <>
+                  <input
+                    type="text"
+                    value={editedTask}
+                    onChange={(e) => setEditedTask(e.target.value)}
+                    className="edit-input"
+                  />
+                  <button className="save-btn" onClick={() => handleEditSave(todo.id)}>Save</button>
+                  <button className="cancel-btn" onClick={cancelEditing}>Cancel</button>
+                </>
+              ) : (
+                <>
+                  <span>{todo.task}</span>
+                  <button className="edit-btn" onClick={() => startEditing(todo)}>Edit</button>
+                </>
+              )}
             </div>
-            <button  className="delete-btn"onClick={() => deleteTodo(todo.id)}>Delete</button>
+            <button className="delete-btn" onClick={() => deleteTodo(todo.id)}>Delete</button>
           </li>
         ))}
       </ul>
